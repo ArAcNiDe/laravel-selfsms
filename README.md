@@ -5,6 +5,7 @@
 ###SMS Notification in Laravel 5.1
 
 SelfSMS is a simple package that allows you to send SMS notifications through specific providers.
+
 For now, only one provider is implemented: "Free Mobile" (French carrier)
 
 ## Requirements
@@ -27,20 +28,22 @@ composer require apiseo/laravel-selfsms
 
 Add the Service Provider and Facade alias to your `config/app.php` :
 
-    'Apiseo\SelfSMS\Laravel\SelfSMSServiceProvider',
+```php
+'Apiseo\SelfSMS\Laravel\SelfSMSServiceProvider',
 
-    'SelfSMS' => 'Apiseo\SelfSMS\Laravel\SelfSMSFacade',
+'SelfSMS' => 'Apiseo\SelfSMS\Laravel\SelfSMSFacade',
+```
 
 Then publish the default configuration file into `config/selfsms.php` using this command :
 
-    php artisan optimize
-    php artisan vendor:publish
+	php artisan optimize
+	php artisan vendor:publish
 
 ## Using It
 
 #### Instantiate any provider directly (not recommanded)
 
-```
+```php
 use Apiseo\SelfSMS\FreeMobileSMSProvider;
 
 $sms = new FreeMobileSMSProvider();
@@ -50,7 +53,7 @@ $sms->send('My message')
 
 #### In Laravel you can use the IoC Container and the contract
 
-```
+```php
 $sms = app()->make('Apiseo\SelfSMS\SelfSMSProvider');
 
 return $sms->send('My message')
@@ -58,7 +61,7 @@ return $sms->send('My message')
 
 #### Or Method Injection
 
-```
+```php
 use Apiseo\SelfSMS\SelfSMSProvider;
 
 class NotificationController extends Controller {
@@ -73,7 +76,7 @@ class NotificationController extends Controller {
 
 #### Or the Facade
 
-```
+```php
 return \SelfSMS::send('My message')
 ```
 
@@ -81,8 +84,8 @@ return \SelfSMS::send('My message')
 
 You can use the fluent interface to configure the provider and send your message :
 
-```
-$sms = \Self::make();
+```php
+$sms = \SelfSMS::make();
 
 $sms->withMessage('My text message');
 
@@ -96,7 +99,9 @@ $sms->send();
 ## License
 
 SelfSMS is licensed under the CeCILL-C License.
+
 French version: [HTML](http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html) - [Text](http://www.cecill.info/licences/Licence_CeCILL-B_V1-fr.txt)
+
 English version: [HTML](http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html) - [Text](http://www.cecill.info/licences/Licence_CeCILL-B_V1-en.txt)
 
 ## Contributing

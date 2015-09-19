@@ -1,0 +1,31 @@
+{
+    "name": "apiseo/laravel-selfsms",
+    "description": "Provides a simple SMS notification interface for Laravel 5.",
+    "version": "1.0.0",
+    "keywords": [ "laravel", "free-mobile", "sms", "notification", "notify", "message" ],
+    "license": "CECILL-C",
+    "authors": [
+        {
+            "name": "Stéphane B.",
+            "email": "selfsms@apiseo.fr",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/ArAcNiDe/laravel-selfsms.git"
+    },
+    "autoload": {
+        "psr-4": {
+            "Apiseo\\SelfSMS\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "5.1.*"
+    },
+    "require-dev": {
+        "illuminate/support": "5.1.*"
+    }
+}
